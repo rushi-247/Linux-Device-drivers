@@ -13,17 +13,17 @@
 
 loff_t pcd_lseek(struct file *filp, loff_t offset, int whence)
 {
-	
+	return 0;	
 }
 
 ssize_t pcd_read(struct file *filp, char __user *buff, size_t count, loff_t *f_pos)
 {
-	
+	return 0;
 }
 
 ssize_t pcd_write(struct file *filp, const char __user *buff, size_t count, loff_t *f_pos)
 {
-	
+	return 0;
 }
 
 int check_permission(int dev_perm, int acc_mode)
@@ -44,7 +44,7 @@ int check_permission(int dev_perm, int acc_mode)
 
 int pcd_open(struct inode *inode, struct file *filp)
 {
-	
+	return 0;
 }
 
 int pcd_release(struct inode *inode, struct file *filp)
@@ -65,14 +65,16 @@ struct file_operations pcd_fops = {
 };
 
 //gets called when device is removed from the system
-int pcd_platform_driver_remove(struct platform_device *pdev)
+void pcd_platform_driver_remove(struct platform_device *pdev)
 {
-	return 0;
+	pr_info("A device is removed\n");
+	//return 0;
 }
 
 //gets called when matched device is found
 int pcd_platform_driver_probe(struct platform_device *pdev)
 {
+	pr_info("A device is connected\n");
 	return 0;
 }
 
@@ -89,6 +91,7 @@ static int __init pcd_platform_driver_init(void)
 {
 	platform_driver_register(&pcd_platform_driver);
 	pr_info("pcd platform driver loaded\n");
+	return 0;
 }
 
 static void __exit pcd_platform_driver_cleanup(void)

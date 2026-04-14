@@ -5,5 +5,5 @@ struct pcdev_platform_data{
 };
 
 #define RDWR 0x11
-#define RD 0x01
-#define WR 0x10
+#define RDONLY 0x01
+#define WRONLY 0x10
