@@ -74,7 +74,7 @@ void pcd_platform_driver_remove(struct platform_device *pdev)
 //gets called when matched device is found
 int pcd_platform_driver_probe(struct platform_device *pdev)
 {
-	pr_info("A device is connected\n");
+	pr_info("A device is detected\n");
 	return 0;
 }
 
