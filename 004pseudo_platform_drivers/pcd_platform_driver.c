@@ -97,8 +97,39 @@ void pcd_platform_driver_remove(struct platform_device *pdev)
 //gets called when matched device is found
 int pcd_platform_driver_probe(struct platform_device *pdev)
 {
+	int ret;
+	
+	struct pcdev_private_data *dev_data;
+
+	struct pcdev_platform_data *pdata;
+
+	/*1.Get the platform data*/
+	pdata = (struct pcdev_platform_data *) dev_get_platdata(&pdev->data);
+	if(!pdata){
+		pr_info("No platform data available\n");
+		ret = -EINVAL;
+		goto out;
+	}
+
+	/*2.Dynamically allocate memory for the device private bus*/
+
+	/*3.Dynamically allocate memory for the device buffer using size information
+	from the platform data */
+
+	/*4.Get the device number */
+
+	/*5.Do cdev init and cdev add*/
+
+	/*6.Create device file for the detected platform device*/
+
+	/*7.Error handelling*/
+	
 	pr_info("A device is detected\n");
 	return 0;
+
+out:
+	pr_info("Device probing failed\n");
+	return ret;
 }
 
 struct platform_driver pcd_platform_driver = 
