@@ -121,7 +121,6 @@ static int __init pcd_platform_driver_init(void)
 	ret = alloc_chrdev_region(&pcdrv_data.device_num_base, 0, MAX_DEVICES, "pcd_devices");
 	if(ret < 0){
 		pr_info("Char dev failed\n");
-		goto out;
 	}
 
 	/*2.Create device class under /sys/class/ */
