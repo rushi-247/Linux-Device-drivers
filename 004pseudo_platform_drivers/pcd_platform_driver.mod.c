@@ -26,6 +26,15 @@ __used __section("__versions") = {
 	{ 0x0bc5fb0d, "unregister_chrdev_region" },
 	{ 0x4695bf9b, "platform_driver_unregister" },
 	{ 0xa1dacb42, "class_destroy" },
+	{ 0xbd03ed67, "random_kmalloc_seed" },
+	{ 0xfaabfe5e, "kmalloc_caches" },
+	{ 0xc064623f, "__kmalloc_cache_noprof" },
+	{ 0xd710adbf, "__kmalloc_noprof" },
+	{ 0xd5f66efd, "cdev_init" },
+	{ 0x8ea73856, "cdev_add" },
+	{ 0xe486c4b7, "device_create" },
+	{ 0xcb8b6ec6, "kfree" },
+	{ 0x4e54d6ac, "cdev_del" },
 	{ 0xd272d446, "__fentry__" },
 	{ 0xbebe66ff, "module_layout" },
 };
@@ -40,6 +49,15 @@ __used __section("__version_ext_crcs") = {
 	0x0bc5fb0d,
 	0x4695bf9b,
 	0xa1dacb42,
+	0xbd03ed67,
+	0xfaabfe5e,
+	0xc064623f,
+	0xd710adbf,
+	0xd5f66efd,
+	0x8ea73856,
+	0xe486c4b7,
+	0xcb8b6ec6,
+	0x4e54d6ac,
 	0xd272d446,
 	0xbebe66ff,
 };
@@ -53,6 +71,15 @@ __used __section("__version_ext_names") =
 	"unregister_chrdev_region\0"
 	"platform_driver_unregister\0"
 	"class_destroy\0"
+	"random_kmalloc_seed\0"
+	"kmalloc_caches\0"
+	"__kmalloc_cache_noprof\0"
+	"__kmalloc_noprof\0"
+	"cdev_init\0"
+	"cdev_add\0"
+	"device_create\0"
+	"kfree\0"
+	"cdev_del\0"
 	"__fentry__\0"
 	"module_layout\0"
 ;
@@ -60,4 +87,4 @@ __used __section("__version_ext_names") =
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "DB1E9DE3F4D4F71087E301B");
+MODULE_INFO(srcversion, "448BA4C33A7EF4389A2FF6C");

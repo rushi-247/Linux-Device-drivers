@@ -107,7 +107,7 @@ int pcd_platform_driver_probe(struct platform_device *pdev)
 	pr_info("A Device is detected\n");
 	
 	/*1.Get the platform data*/
-	pdata = (struct pcdev_platform_data *) dev_get_platdata(&pdev->data);
+	pdata = (struct pcdev_platform_data *) dev_get_platdata(&pdev->dev);
 	if(!pdata){
 		pr_info("No platform data available\n");
 		ret = -EINVAL;
