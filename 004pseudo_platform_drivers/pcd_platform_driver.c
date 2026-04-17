@@ -6,6 +6,7 @@
 #include<linux/version.h>
 #include<linux/uaccess.h>
 #include<linux/platform_device.h>
+#include<linux/slab.h>
 #include "platform.h"
 
 #undef pr_fmt
@@ -112,6 +113,20 @@ int pcd_platform_driver_probe(struct platform_device *pdev)
 	}
 
 	/*2.Dynamically allocate memory for the device private bus*/
+	dev_data = kzalloc(sizeof(*dev_data), GFP_KERNEL);
+	if(!dev_data){
+		pr_info("Cannot allocate memory\n");
+		ret = -ENOMEM;
+		goto out;
+	}
+
+	dev_data->pdata.size = pdata->size;
+	dev_data->pdata.perm = pdata->perm;
+	dev_data->pdata.serial_number = pdata->serial_number;
+
+	pr_info("Device serial number = %s\n", dev_data->pdata.serial_number);
+	pr_info("Device Size = %d\n", dev_data->pdata.size);
+	pr_info("Device permission = %d\n", dev_data->pdata.perm);
 
 	/*3.Dynamically allocate memory for the device buffer using size information
 	from the platform data */
